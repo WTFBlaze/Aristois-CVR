@@ -27,7 +27,7 @@ namespace Aristois.Core
             }
             if (oldestFile != null)
                 FileManager.DeleteFile(oldestFile.FullName);
-            var fileName = $"BLogs-{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.log";
+            var fileName = $"Logs-{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.log";
             LogFileName = PathManager.LogsDir + $"\\{fileName}";
             FileManager.CreateFile(LogFileName);
             var latest = PathManager.ModDir + "\\Latest.log";

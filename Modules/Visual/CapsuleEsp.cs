@@ -1,6 +1,7 @@
 ﻿using ABI.CCK.Components;
 using ABI_RC.Core.Player;
 using Aristois.Components;
+using Aristois.Configs;
 using Aristois.Modules.Core;
 using Aristois.Utils;
 using BTKUILib.UIObjects.Components;
@@ -37,19 +38,58 @@ namespace Aristois.Modules.Visual
             ToggleButton = UserInterface.Category_Esp.AddToggle("Capsule Esp", "Show a capsule shaped bubble around all players in the instance.", State);
             ToggleButton.OnValueUpdated += (value) =>
             {
+                Config.Main.CapsuleEsp = value;
                 SetState(value);
+            };
+
+            var rainbowTgl = UserInterface.Category_Esp.AddToggle("Rainbow Fade", "Sets all Esp Modules to use a Rainbow Fade effect", Config.Colors.RainbowEsp);
+            rainbowTgl.OnValueUpdated += (value) =>
+            {
+                Config.Colors.RainbowEsp = value;
+                UpdateAllEspItems();
+            };
+
+            var gradientTgl = UserInterface.Category_Esp.AddToggle("Gradient Colors", "Sets all Esp Modules to use a two color Gradient effect", Config.Colors.GradientEsp);
+            gradientTgl.OnValueUpdated += (value) =>
+            {
+                Config.Colors.GradientEsp = value;
+                UpdateAllEspItems();
+            };
+
+            var scanLineTgl = UserInterface.Category_Esp.AddToggle("ScanLine Effect", "Sets all Esp Modules to use a scan line effect (sets to color of universal esp color in config)", Config.Colors.ScanLinesEsp);
+            scanLineTgl.OnValueUpdated += (value) =>
+            {
+                Config.Colors.ScanLinesEsp = value;
+                UpdateAllEspItems();
             };
         }
 
-        protected override void OnStateChange(bool state)
+        private void UpdateAllEspItems()
         {
             foreach (var player in CVRUtils.GetAllPlayers())
             {
                 var espTransform = player.PuppetMaster.transform.Find("Esp");
                 if (espTransform is null)
                     continue;
-                espTransform.gameObject.SetActive(state);
+                espTransform.gameObject.SetActive(State);
+                var espComp = player.PuppetMaster.GetComponent<EspOutline>();
+                if (espComp is null)
+                    continue;
+
+                if (Config.Colors.RainbowEsp)
+                    espComp.SetRainbowEsp();
+                else if (Config.Colors.GradientEsp)
+                    espComp.SetGradientEsp();
+                else if (Config.Colors.ScanLinesEsp)
+                    espComp.SetScanLinesEsp();
+                else
+                    espComp.SetSingleColorEsp();
             }
+        }
+
+        protected override void OnStateChange(bool state)
+        {
+            UpdateAllEspItems();
             if (ToggleButton != null && ToggleButton.ToggleValue != state)
                 ToggleButton.ToggleValue = state;
         }

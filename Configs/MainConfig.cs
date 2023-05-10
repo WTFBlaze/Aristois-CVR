@@ -1,12 +1,14 @@
-﻿using Aristois.Modules;
-using Aristois.Utils;
+﻿using Aristois.Utils;
 using System.IO;
 
 namespace Aristois.Configs
 {
     internal class MainConfig
     {
-        public static MainConfig Instance;
+        public static MainConfig Instance { get; private set; }
+
+        public readonly string Category_Visual = "========[VISUAL]========";
+        public bool CapsuleEsp { get; set; } = false;
 
         public static void Load()
         {
