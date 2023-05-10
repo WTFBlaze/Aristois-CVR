@@ -19,3 +19,11 @@ Dear ABI Developers, if there is a feature on here that needs to be removed / li
 - [ ] Pipeline / API Response Parser (Used to notify when friends change instances or go online / offline.)
 - [ ] Player Rotator
 - [ ] Avatar Indexer (Simply index details about an avatar)
+- [ ] Infinite Jump
+- [ ] Jetpack Flight
+- [ ] Player Speed
+- [ ] Customizable Keybinds
+- [ ] World Pickups Manager
+- [ ] Player Props Manager
+- [ ] Debug Panel
+- [ ] Player List
