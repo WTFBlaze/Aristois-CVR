@@ -62,7 +62,6 @@ namespace Aristois.Core
                 m.OnSceneUnloaded(buildIndex, sceneName);
         }
         #endregion
-
         #region Helper Methods
         private void UnhandledExceptions(object sender, UnhandledExceptionEventArgs e)
         {
@@ -97,5 +96,6 @@ namespace Aristois.Core
                 m.OnContainerCreated();
         }
         #endregion
+
     }
 }
