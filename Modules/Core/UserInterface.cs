@@ -1,4 +1,5 @@
-﻿using Aristois.Core;
+﻿using ABI_RC.Core.InteractionSystem;
+using Aristois.Core;
 using BTKUILib;
 using BTKUILib.UIObjects;
 using System.IO;
@@ -13,8 +14,9 @@ namespace Aristois.Modules.Core
 
         public static Page MainPage { get; private set; }
         public static Category Category_Esp { get; private set; }
+        public static Category Category_Esp_Settings { get; private set; }
 
-        public override void OnUILoaded()
+        public override void OnUILoaded(ref CVR_MenuManager menuManager)
         {
             #region Register Icons
             QuickMenuAPI.PrepareIcon(ModInfo.Name, "Logo", GetIcon("Logo.png"));
@@ -30,6 +32,7 @@ namespace Aristois.Modules.Core
 
             #region Categories
             Category_Esp = MainPage.AddCategory("Esp");
+            Category_Esp_Settings = MainPage.AddCategory("Esp Settings");
             #endregion
         }
 

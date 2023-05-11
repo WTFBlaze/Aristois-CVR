@@ -1,4 +1,5 @@
-﻿using ABI_RC.Core.Player;
+﻿using ABI_RC.Core.InteractionSystem;
+using ABI_RC.Core.Player;
 
 namespace Aristois.Modules
 {
@@ -28,7 +29,7 @@ namespace Aristois.Modules
         protected virtual void OnStateChange(bool state) { }
         public virtual void OnSceneLoaded(int index, string name) { }
         public virtual void OnSceneUnloaded(int index, string name) { }
-        public virtual void OnUILoaded() { }
+        public virtual void OnUILoaded(ref CVR_MenuManager menuManager) { }
         public virtual void OnUIToggled(bool newActiveState) { }
         public virtual void OnContainerCreated() { }
         public virtual void OnKeybindCalled() { }

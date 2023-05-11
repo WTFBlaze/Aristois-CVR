@@ -1,4 +1,5 @@
 ﻿using Aristois.Core;
+using Aristois.Utils;
 using System;
 using System.Collections.Generic;
 
@@ -18,6 +19,8 @@ namespace Aristois.Modules
                 return;
             }
             Modules.Add(source);
+            if (!source.GetHideFromList())
+                Logs.Log($"Successfully registered module: {ColorManager.Console.Cyan}{source.GetModuleName()}");
         }
     }
 }

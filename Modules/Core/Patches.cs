@@ -84,10 +84,10 @@ namespace Aristois.Modules.Core
                 m.OnAvatarInstantiated(__instance);
         }
 
-        private static void Patch_MenuCreated()
+        private static void Patch_MenuCreated(CVR_MenuManager __instance)
         {
             foreach (var m in ModuleManager.Modules)
-                m.OnUILoaded();
+                m.OnUILoaded(ref __instance);
         }
 
         private static void Patch_MenuToggled(bool __0)

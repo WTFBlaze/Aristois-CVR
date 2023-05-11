@@ -9,6 +9,7 @@ namespace Aristois.Utils
     {
         private static AssetBundle Bundle { get; set; }
         public static Shader EspShader { get; private set; }
+        public static GameObject PanelPrefab { get; private set; }
 
         internal static void Initialize()
         {
@@ -25,6 +26,7 @@ namespace Aristois.Utils
 
                 #region Load Assets from Bundle
                 EspShader = LoadAsset<Shader>("Assets/Aristois/Esp.shader");
+                PanelPrefab = LoadAsset<GameObject>("Assets/Aristois/Canvas.prefab");
                 #endregion
 
                 Logs.Log($"{ColorManager.Console.Green}Successfully loaded Asset Bundle!");

@@ -6,25 +6,25 @@ namespace Aristois.Components
     internal class ObjectHandler : MonoBehaviour
     {
         // Credits to Obi for this class <3
-        public event Action OnStart_E;
-        public event Action OnUpdate_E;
-        public event Action OnEnable_E;
-        public event Action OnDisable_E;
-        public event Action OnDestroy_E;
+        internal event Action OnStart_E;
+        internal event Action OnUpdate_E;
+        internal event Action OnEnable_E;
+        internal event Action OnDisable_E;
+        internal event Action OnDestroy_E;
 
-        public void Start()
+        internal void Start()
             => OnStart_E?.Invoke();
 
-        public void Update()
+        internal void Update()
             => OnUpdate_E?.Invoke();
 
-        public void OnEnable()
+        internal void OnEnable()
             => OnEnable_E?.Invoke();
 
-        public void OnDisable()
+        internal void OnDisable()
             => OnDisable_E?.Invoke();
 
-        public void OnDestroy()
+        internal void OnDestroy()
             => OnDestroy_E?.Invoke();
     }
 }

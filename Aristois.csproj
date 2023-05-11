@@ -186,6 +186,7 @@
     <Compile Include="Modules\ModuleBase.cs" />
     <Compile Include="Modules\ModuleManager.cs" />
     <Compile Include="Modules\Visual\CapsuleEsp.cs" />
+    <Compile Include="Modules\Visual\DebugPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\External\JsonColor.cs" />
     <Compile Include="Serialization\External\JsonGradient.cs" />
@@ -204,6 +205,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icons\Logo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Modules\Movement\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

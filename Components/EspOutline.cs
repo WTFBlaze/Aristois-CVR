@@ -8,7 +8,7 @@ namespace Aristois.Components
     {   
         // Credits to Edward7s for the base of this component. We have used it and modified it for our shader and usage instead <3
         private GameObject _espGameObject { get; set; }
-        public Material material { get; private set; }
+        internal Material material { get; private set; }
 
         private void Awake()
         {
@@ -56,7 +56,7 @@ namespace Aristois.Components
             material.SetFloat("_GradiantAlhpa", 0);
         }
 
-        public void SetRainbowEsp()
+        internal void SetRainbowEsp()
         {
             ResetAllEspValues();
             material.SetFloat("_HueTile", 1);
@@ -64,7 +64,7 @@ namespace Aristois.Components
             material.SetFloat("_HueAlpha", 1);
         }
 
-        public void SetGradientEsp()
+        internal void SetGradientEsp()
         {
             ResetAllEspValues();
             material.SetFloat("_GradiantAlhpa", 1);
@@ -78,7 +78,7 @@ namespace Aristois.Components
             material.SetFloat("_MoveG2", 0);
         }
 
-        public void SetScanLinesEsp()
+        internal void SetScanLinesEsp()
         {
             ResetAllEspValues();
             material.SetFloat("_ScanAlpha", 1);
@@ -88,7 +88,7 @@ namespace Aristois.Components
             material.SetColor("_Scancolor", Config.Colors.EspColor.GetColor());
         }
 
-        public void SetSingleColorEsp()
+        internal void SetSingleColorEsp()
         {
             ResetAllEspValues();
             material.SetColor("_Color", Config.Colors.EspColor.GetColor());

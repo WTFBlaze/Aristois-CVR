@@ -3,15 +3,16 @@ using System;
 using Aristois.Utils;
 using System.Linq;
 using System.Diagnostics;
+using Aristois.Modules.Visual;
 
 namespace Aristois.Core
 {
     internal static class Logs
     {
-        public static bool IsSetup { get; private set; } = false;
+        internal static bool IsSetup { get; private set; } = false;
         private static string LogFileName = string.Empty;
 
-        public static void Initialize()
+        internal static void Initialize()
         {
             DirectoryInfo directoryInfo = new(PathManager.LogsDir);
             FileInfo oldestFile = null;
@@ -38,7 +39,7 @@ namespace Aristois.Core
             Log($"{ColorManager.Console.Cyan}Aristois Logger Initialized! {ColorManager.Console.Yellow}Log File: {ColorManager.Console.DarkYellow}{fileName}");
         }
 
-        public static void Log(string msg)
+        internal static void Log(string msg)
         {
             var dateTime = DateTime.Now.ToString("HH:mm:ss.fff");
             string result = $"{ColorManager.Console.Cyan}{dateTime} {ColorManager.Console.Gray}>> {ColorManager.Console.White}{msg}";
@@ -47,17 +48,23 @@ namespace Aristois.Core
             FileManager.AppendLineToFile(LogFileName, RemoveColorCharacters(result));
         }
 
-        public static void Error(string msg)
+        internal static void Error(string msg)
             => Log($"{ColorManager.Console.Red}ERROR {ColorManager.Console.DarkRed} >>  {ColorManager.Console.Gray}{msg}");
 
-        public static void Error(string msg, StackTrace st)
+        internal static void Error(string msg, StackTrace st)
             => Log($"{ColorManager.Console.Red}ERROR {ColorManager.Console.DarkRed}>> {ColorManager.Console.Gray}{msg} | {st}");
 
-        public static void Error(string msg, string stackTrace)
+        internal static void Error(string msg, string stackTrace)
             => Log($"{ColorManager.Console.Red}ERROR {ColorManager.Console.DarkRed}>> {ColorManager.Console.Gray}{msg} | {stackTrace}");
 
-        public static void Error(Exception ex)
+        internal static void Error(Exception ex)
             => Log($"{ColorManager.Console.Red}ERROR {ColorManager.Console.DarkRed}>> {ColorManager.Console.Gray}{ex.Message} | {ex.StackTrace}");
+
+        internal static void Debug(string msg)
+            => DebugPanel.AddLog(msg);
+
+        internal static void Debug(string color, string prefix, string msg)
+            => DebugPanel.AddLog(prefix, color, msg);
 
         private static string RemoveColorCharacters(string msg)
         {

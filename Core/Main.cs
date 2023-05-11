@@ -27,6 +27,7 @@ namespace Aristois.Core
             ModuleManager.RegisterModule(new Patches());
             ModuleManager.RegisterModule(new UserInterface());
             ModuleManager.RegisterModule(new CapsuleEsp());
+            ModuleManager.RegisterModule(new DebugPanel());
             #endregion
 
             Config.LoadConfigs();

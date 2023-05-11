@@ -1,4 +1,5 @@
 ﻿using ABI.CCK.Components;
+using ABI_RC.Core.InteractionSystem;
 using ABI_RC.Core.Player;
 using Aristois.Components;
 using Aristois.Configs;
@@ -33,7 +34,7 @@ namespace Aristois.Modules.Visual
             espTransform.gameObject.SetActive(State);
         }
 
-        public override void OnUILoaded()
+        public override void OnUILoaded(ref CVR_MenuManager menuManager)
         {
             ToggleButton = UserInterface.Category_Esp.AddToggle("Capsule Esp", "Show a capsule shaped bubble around all players in the instance.", State);
             ToggleButton.OnValueUpdated += (value) =>
@@ -42,21 +43,21 @@ namespace Aristois.Modules.Visual
                 SetState(value);
             };
 
-            var rainbowTgl = UserInterface.Category_Esp.AddToggle("Rainbow Fade", "Sets all Esp Modules to use a Rainbow Fade effect", Config.Colors.RainbowEsp);
+            var rainbowTgl = UserInterface.Category_Esp_Settings.AddToggle("Rainbow Fade", "Sets all Esp Modules to use a Rainbow Fade effect", Config.Colors.RainbowEsp);
             rainbowTgl.OnValueUpdated += (value) =>
             {
                 Config.Colors.RainbowEsp = value;
                 UpdateAllEspItems();
             };
 
-            var gradientTgl = UserInterface.Category_Esp.AddToggle("Gradient Colors", "Sets all Esp Modules to use a two color Gradient effect", Config.Colors.GradientEsp);
+            var gradientTgl = UserInterface.Category_Esp_Settings.AddToggle("Gradient Colors", "Sets all Esp Modules to use a two color Gradient effect", Config.Colors.GradientEsp);
             gradientTgl.OnValueUpdated += (value) =>
             {
                 Config.Colors.GradientEsp = value;
                 UpdateAllEspItems();
             };
 
-            var scanLineTgl = UserInterface.Category_Esp.AddToggle("ScanLine Effect", "Sets all Esp Modules to use a scan line effect (sets to color of universal esp color in config)", Config.Colors.ScanLinesEsp);
+            var scanLineTgl = UserInterface.Category_Esp_Settings.AddToggle("ScanLine Effect", "Sets all Esp Modules to use a scan line effect (sets to color of universal esp color in config)", Config.Colors.ScanLinesEsp);
             scanLineTgl.OnValueUpdated += (value) =>
             {
                 Config.Colors.ScanLinesEsp = value;
