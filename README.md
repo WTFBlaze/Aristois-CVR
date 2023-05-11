@@ -11,6 +11,8 @@ Dear ABI Developers, if there is a feature on here that needs to be removed / li
   - Rainbow Fade
   - Gradient Color
   - Color Per Rank
+- Debug Panel
+- Exposed API's to Integrate into the Aristois Systems
 
 # Todo
 - [ ] Improved Flight
@@ -25,5 +27,4 @@ Dear ABI Developers, if there is a feature on here that needs to be removed / li
 - [ ] Customizable Keybinds
 - [ ] World Pickups Manager
 - [ ] Player Props Manager
-- [ ] Debug Panel
 - [ ] Player List
