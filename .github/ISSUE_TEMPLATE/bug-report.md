@@ -1,5 +1,4 @@
------------
-
+---
 name: Bug report
 description: Reporting a bug found in Aristois to be fixed
 about: Reporting a bug found in Aristois to be fixed
@@ -26,5 +25,4 @@ body:
       value: >-
         This template was generated with [Issue Forms
         Creator](https://issue-forms-creator.netlify.app)
-
------------
+---
