@@ -13,6 +13,7 @@ Dear ABI Developers, if there is a feature on here that needs to be removed / li
   - Color Per Rank
 - Debug Panel
 - Exposed API's to Integrate into the Aristois Systems
+- Added Risky Function World Blacklist System (To Request your world be blacklisted open an issue for this repo!)
 
 # Todo
 - [ ] Improved Flight
