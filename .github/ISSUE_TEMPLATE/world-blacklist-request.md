@@ -55,13 +55,6 @@ body:
             blacklist at any moment for any reason determined by Aristois
             Developers.
           required: true
-  - type: markdown
-    attributes:
-      value: >-
-        This template was generated with [Issue Forms
-        Creator](https://issue-forms-creator.netlify.app)
-
-
 ---
 
 
