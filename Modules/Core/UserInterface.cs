@@ -2,6 +2,7 @@
 using Aristois.Core;
 using BTKUILib;
 using BTKUILib.UIObjects;
+using System;
 using System.IO;
 using System.Reflection;
 
@@ -18,21 +19,35 @@ namespace Aristois.Modules.Core
 
         public override void OnUILoaded(ref CVR_MenuManager menuManager)
         {
+            Logs.Log("UserInterface.OnUILoaded called!");
+
             #region Register Icons
-            QuickMenuAPI.PrepareIcon(ModInfo.Name, "Logo", GetIcon("Logo.png"));
+            try
+            {
+                QuickMenuAPI.PrepareIcon(ModInfo.Name, "Logo", GetIcon("Logo.png"));
+            }
+            catch (Exception ex) { Logs.Error(ex); }
             #endregion
 
             #region Main Page
-            MainPage = new Page(ModInfo.Name, "Main", true, "Logo")
+            try
             {
-                MenuTitle = $"{ModInfo.Name} v{ModInfo.Version}",
-                MenuSubtitle = $"The User Interface for {ModInfo.Name}"
-            };
+                MainPage = new Page(ModInfo.Name, "Main", true, "Logo")
+                {
+                    MenuTitle = $"{ModInfo.Name} v{ModInfo.Version}",
+                    MenuSubtitle = $"The User Interface for {ModInfo.Name}"
+                };
+            }
+            catch (Exception ex) { Logs.Error(ex); }
             #endregion
 
             #region Categories
-            Category_Esp = MainPage.AddCategory("Esp");
-            Category_Esp_Settings = MainPage.AddCategory("Esp Settings");
+            try
+            {
+                Category_Esp = MainPage.AddCategory("Esp");
+                Category_Esp_Settings = MainPage.AddCategory("Esp Settings");
+            }
+            catch (Exception ex) { Logs.Error(ex); }
             #endregion
         }
 

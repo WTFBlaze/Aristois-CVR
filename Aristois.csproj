@@ -90,6 +90,10 @@
       <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="NicoKuroKusagi">
+      <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\NicoKuroKusagi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="SteamVR">
       <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\SteamVR.dll</HintPath>
       <Private>False</Private>
@@ -162,6 +166,22 @@
       <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.VRModule">
       <HintPath>D:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.VRModule.dll</HintPath>
       <Private>False</Private>
@@ -172,6 +192,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\LoggingAPI.cs" />
     <Compile Include="Components\EspOutline.cs" />
     <Compile Include="Components\ObjectHandler.cs" />
     <Compile Include="Configs\ColorConfig.cs" />
@@ -181,6 +202,7 @@
     <Compile Include="Core\Main.cs" />
     <Compile Include="Core\ModInfo.cs" />
     <Compile Include="Core\Variables.cs" />
+    <Compile Include="Modules\Core\BlacklistManager.cs" />
     <Compile Include="Modules\Core\Patches.cs" />
     <Compile Include="Modules\Core\UserInterface.cs" />
     <Compile Include="Modules\ModuleBase.cs" />

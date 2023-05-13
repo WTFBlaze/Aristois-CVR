@@ -1,4 +1,5 @@
 ﻿using ABI_RC.Core.InteractionSystem;
+using ABI_RC.Core.Networking.IO.Instancing;
 using ABI_RC.Core.Player;
 
 namespace Aristois.Modules
@@ -34,8 +35,10 @@ namespace Aristois.Modules
         public virtual void OnContainerCreated() { }
         public virtual void OnKeybindCalled() { }
         public virtual void OnAvatarInstantiated(PuppetMaster puppetMaster) { }
-        public virtual void OnPlayerJoined(PlayerDescriptor playerDescriptor, bool isLocalPlayer) { }
-        public virtual void OnPlayerLeft(PlayerDescriptor playerDescriptor, bool isLocalPlayer) { }
+        public virtual void OnPlayerJoined(CVRPlayerEntity player) { }
+        public virtual void OnPlayerLeft(CVRPlayerEntity player) { }
+        public virtual void OnWorldLoaded() { }
+        public virtual void OnRiskyDetermined(bool canUseFunctions) { }
         #endregion
     }
 }

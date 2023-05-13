@@ -4,6 +4,7 @@ using Aristois.Utils;
 using System.Linq;
 using System.Diagnostics;
 using Aristois.Modules.Visual;
+using ABI_RC.Core.InteractionSystem;
 
 namespace Aristois.Core
 {
@@ -65,6 +66,10 @@ namespace Aristois.Core
 
         internal static void Debug(string color, string prefix, string msg)
             => DebugPanel.AddLog(prefix, color, msg);
+
+        internal static void Hud(string title, string content)
+            => ViewManager.Instance.TriggerAlert(title, content, 1, true);
+
 
         private static string RemoveColorCharacters(string msg)
         {

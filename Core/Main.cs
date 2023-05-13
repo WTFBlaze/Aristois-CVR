@@ -28,6 +28,7 @@ namespace Aristois.Core
             ModuleManager.RegisterModule(new UserInterface());
             ModuleManager.RegisterModule(new CapsuleEsp());
             ModuleManager.RegisterModule(new DebugPanel());
+            ModuleManager.RegisterModule(new BlacklistManager());
             #endregion
 
             Config.LoadConfigs();
@@ -58,10 +59,12 @@ namespace Aristois.Core
         {
             if (!Variables.IsValidStart)
                 return;
+
             foreach (var m in ModuleManager.Modules) 
                 m.OnSceneUnloaded(buildIndex, sceneName);
         }
         #endregion
+
         #region Helper Methods
         private void UnhandledExceptions(object sender, UnhandledExceptionEventArgs e)
         {

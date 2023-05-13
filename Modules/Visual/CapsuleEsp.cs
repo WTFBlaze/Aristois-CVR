@@ -90,9 +90,22 @@ namespace Aristois.Modules.Visual
 
         protected override void OnStateChange(bool state)
         {
+            if (state && !BlacklistManager.CanUseRiskyFunctions)
+            {
+                SetState(false);
+                return;
+            }
+
             UpdateAllEspItems();
             if (ToggleButton != null && ToggleButton.ToggleValue != state)
                 ToggleButton.ToggleValue = state;
+        }
+
+        public override void OnRiskyDetermined(bool canUseFunctions)
+        {
+            if (canUseFunctions || !State)
+                return;
+            SetState(false);
         }
     }
 }
