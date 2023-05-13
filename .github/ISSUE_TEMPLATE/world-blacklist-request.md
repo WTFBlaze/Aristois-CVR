@@ -1,5 +1,6 @@
 ---
 name: World Blacklist Request Form
+about: World Blacklist Request Form
 description: >-
   The official form to request your CVR world be added to the Aristois Risky  
   Function Blacklist System.
